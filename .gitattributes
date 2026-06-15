@@ -1,2 +1,1061 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ottawa Stone Works – Premium Stone Masonry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --green: #3a7d44;
+    --green-dark: #2a5c32;
+    --green-light: #5a9e66;
+    --green-pale: #e8f2e9;
+    --beige: #f5f0e8;
+    --beige-dark: #e8dfc8;
+    --beige-mid: #d4c9b0;
+    --white: #fdfcf9;
+    --stone: #8c7b6b;
+    --stone-dark: #5c4e42;
+    --text: #2a2218;
+    --text-light: #6b5f52;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Cormorant Garamond', serif;
+    background: var(--white);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 5%;
+    background: rgba(253,252,249,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--beige-dark);
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 30px rgba(42,92,50,0.10); }
+
+  .nav-logo {
+    display: flex; align-items: center; gap: 12px; text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 42px; height: 42px;
+    background: var(--green);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 18px; font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    flex-shrink: 0;
+  }
+  .nav-logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700;
+    color: var(--green-dark); line-height: 1.1;
+  }
+  .nav-logo-text span { display: block; font-size: 0.65rem; font-weight: 400; letter-spacing: .15em; color: var(--stone); text-transform: uppercase; }
+
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--text);
+    font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; letter-spacing: .04em;
+    position: relative; padding-bottom: 2px;
+    transition: color .2s;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 100%; height: 1px;
+    background: var(--green); transition: right .3s;
+  }
+  .nav-links a:hover { color: var(--green); }
+  .nav-links a:hover::after { right: 0; }
+
+  .nav-cta {
+    background: var(--green); color: white !important;
+    padding: 9px 22px; border-radius: 2px;
+    font-family: 'Libre Baskerville', serif !important; font-size: 0.8rem !important;
+    letter-spacing: .08em !important; text-transform: uppercase;
+    transition: background .2s !important;
+  }
+  .nav-cta:hover { background: var(--green-dark) !important; color: white !important; }
+  .nav-cta::after { display: none !important; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+    position: relative; overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 6% 80px 8%;
+    background: var(--beige);
+    position: relative; z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.7rem; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--green); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: block; width: 40px; height: 1px; background: var(--green);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 900; line-height: 1.0;
+    color: var(--text);
+    margin-bottom: 28px;
+  }
+  .hero-title .accent { color: var(--green); display: block; }
+
+  .hero-desc {
+    font-size: 1.2rem; font-weight: 300; line-height: 1.8;
+    color: var(--text-light); max-width: 440px;
+    margin-bottom: 48px;
+  }
+
+  .hero-stats {
+    display: flex; gap: 40px; margin-bottom: 48px;
+  }
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem; font-weight: 700; color: var(--green-dark);
+    line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 0.8rem; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--stone); margin-top: 4px;
+  }
+
+  .hero-buttons { display: flex; gap: 16px; }
+  .btn-primary {
+    background: var(--green); color: white;
+    padding: 16px 36px; font-family: 'Libre Baskerville', serif;
+    font-size: 0.78rem; letter-spacing: .1em; text-transform: uppercase;
+    border: none; cursor: pointer; text-decoration: none;
+    transition: background .2s, transform .2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent; color: var(--green);
+    padding: 16px 36px; font-family: 'Libre Baskerville', serif;
+    font-size: 0.78rem; letter-spacing: .1em; text-transform: uppercase;
+    border: 1.5px solid var(--green); cursor: pointer; text-decoration: none;
+    transition: all .2s; display: inline-block;
+  }
+  .btn-outline:hover { background: var(--green); color: white; transform: translateY(-2px); }
+
+  .hero-right {
+    position: relative; overflow: hidden;
+  }
+  .hero-right img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 8s ease;
+  }
+  .hero-right:hover img { transform: scale(1.04); }
+  .hero-right::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(58,125,68,0.15) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-badge {
+    position: absolute; bottom: 40px; left: -28px;
+    background: var(--green-dark); color: white;
+    padding: 16px 28px; font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: 1rem; z-index: 5;
+    box-shadow: 4px 4px 20px rgba(0,0,0,.2);
+  }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 100px 8%; }
+
+  .section-label {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.68rem; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--green); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .section-label::before { content: ''; display: block; width: 30px; height: 1px; background: var(--green); }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 700; line-height: 1.15;
+    color: var(--text); margin-bottom: 20px;
+  }
+
+  .section-sub {
+    font-size: 1.1rem; font-weight: 300; color: var(--text-light);
+    line-height: 1.8; max-width: 580px;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--white);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+
+  .about-text .section-title { margin-bottom: 24px; }
+
+  .about-body {
+    font-size: 1.05rem; font-weight: 300; line-height: 1.9;
+    color: var(--text-light); margin-bottom: 32px;
+  }
+  .about-body p + p { margin-top: 16px; }
+  .about-body strong { color: var(--green-dark); font-weight: 600; }
+
+  .about-signature {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 1.6rem;
+    color: var(--green-dark); margin-top: 28px;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+  .about-img-main {
+    width: 100%; aspect-ratio: 4/5; object-fit: cover;
+    display: block;
+  }
+  .about-img-accent {
+    position: absolute; bottom: -30px; right: -30px;
+    width: 48%; aspect-ratio: 1; object-fit: cover;
+    border: 6px solid var(--white);
+    box-shadow: 0 12px 40px rgba(0,0,0,.15);
+  }
+  .about-years-badge {
+    position: absolute; top: 30px; left: -20px;
+    background: var(--green); color: white;
+    width: 100px; height: 100px; border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    box-shadow: 0 8px 30px rgba(58,125,68,.35);
+  }
+  .about-years-badge .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 900; line-height: 1;
+  }
+  .about-years-badge .lbl {
+    font-size: 0.55rem; letter-spacing: .12em; text-transform: uppercase;
+    text-align: center;
+  }
+
+  /* ── SERVICES ── */
+  #services {
+    background: var(--beige);
+  }
+  .services-header { max-width: 600px; margin-bottom: 60px; }
+
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+  }
+  .service-card {
+    background: var(--white);
+    padding: 48px 36px;
+    position: relative; overflow: hidden;
+    transition: background .3s;
+    cursor: default;
+  }
+  .service-card:hover { background: var(--green); }
+  .service-card:hover .service-icon,
+  .service-card:hover .service-name,
+  .service-card:hover .service-desc { color: white; }
+  .service-card:hover .service-num { color: rgba(255,255,255,.2); }
+
+  .service-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem; font-weight: 900;
+    color: var(--beige-dark); line-height: 1;
+    margin-bottom: 20px;
+    transition: color .3s;
+  }
+  .service-icon { font-size: 2rem; margin-bottom: 16px; display: block; transition: color .3s; }
+  .service-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700;
+    color: var(--text); margin-bottom: 12px;
+    transition: color .3s;
+  }
+  .service-desc {
+    font-size: 0.95rem; font-weight: 300; line-height: 1.7;
+    color: var(--text-light); transition: color .3s;
+  }
+
+  /* ── PORTFOLIO ── */
+  #portfolio { background: var(--white); }
+  .portfolio-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 50px; }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 12px;
+  }
+
+  .portfolio-item {
+    position: relative; overflow: hidden;
+    cursor: pointer;
+  }
+  .portfolio-item:nth-child(1) { grid-column: span 2; aspect-ratio: 16/9; }
+  .portfolio-item:nth-child(2) { aspect-ratio: 3/4; }
+  .portfolio-item:nth-child(3) { aspect-ratio: 3/4; }
+  .portfolio-item:nth-child(4) { aspect-ratio: 3/4; }
+  .portfolio-item:nth-child(5) { grid-column: span 2; aspect-ratio: 16/9; }
+  .portfolio-item:nth-child(6) { aspect-ratio: 3/4; }
+  .portfolio-item:nth-child(7) { aspect-ratio: 3/4; }
+  .portfolio-item:nth-child(8) { grid-column: span 2; aspect-ratio: 16/9; }
+  .portfolio-item:nth-child(9) { aspect-ratio: 3/4; }
+  .portfolio-item:nth-child(10) { aspect-ratio: 4/3; }
+  .portfolio-item:nth-child(11) { aspect-ratio: 4/3; }
+
+  .portfolio-item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .6s ease;
+    display: block;
+  }
+  .portfolio-item:hover img { transform: scale(1.07); }
+
+  .portfolio-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(42,92,50,0.88) 0%, transparent 55%);
+    opacity: 0; transition: opacity .4s;
+    display: flex; align-items: flex-end; padding: 24px;
+  }
+  .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+
+  .portfolio-overlay-text {
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem; font-weight: 600;
+  }
+  .portfolio-overlay-text span {
+    display: block; font-family: 'Cormorant Garamond', serif;
+    font-size: 0.8rem; font-weight: 300; letter-spacing: .08em; margin-top: 2px;
+    color: rgba(255,255,255,.8);
+  }
+
+  /* ── SERVICE AREA ── */
+  #service-area {
+    background: var(--green-dark);
+    color: white;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  #service-area .section-label { color: var(--green-pale); }
+  #service-area .section-label::before { background: var(--green-pale); }
+  #service-area .section-title { color: white; }
+  #service-area .section-sub { color: rgba(255,255,255,.75); }
+
+  .area-tags {
+    display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px;
+  }
+  .area-tag {
+    background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25);
+    padding: 10px 22px; color: white;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.78rem; letter-spacing: .1em; text-transform: uppercase;
+    border-radius: 2px;
+  }
+  .area-tag.featured { background: var(--green); border-color: var(--green); }
+
+  .area-map {
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.15);
+    padding: 40px; border-radius: 4px;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .area-map h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 700; margin-bottom: 20px;
+    color: white;
+  }
+  .area-detail {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.1);
+    font-size: 1rem; color: rgba(255,255,255,.85);
+  }
+  .area-detail:last-child { border-bottom: none; }
+  .area-detail-icon { color: var(--green-light); font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials {
+    background: var(--beige);
+  }
+  .testimonials-header { max-width: 600px; margin-bottom: 60px; }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+
+  .testimonial-card {
+    background: var(--white);
+    padding: 40px 32px;
+    position: relative;
+  }
+  .testimonial-card::before {
+    content: '\201C';
+    position: absolute; top: 20px; right: 28px;
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; color: var(--green-pale);
+    line-height: 1;
+  }
+  .testimonial-stars { color: var(--green); font-size: 0.85rem; margin-bottom: 16px; }
+  .testimonial-text {
+    font-size: 1rem; font-weight: 300; line-height: 1.8;
+    color: var(--text-light); margin-bottom: 24px;
+    font-style: italic;
+  }
+  .testimonial-author {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.78rem; font-weight: 700; letter-spacing: .06em;
+    color: var(--green-dark); text-transform: uppercase;
+  }
+  .testimonial-location {
+    font-size: 0.78rem; color: var(--stone); margin-top: 2px;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--white);
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start;
+  }
+
+  .contact-info .section-title { margin-bottom: 20px; }
+  .contact-info .section-sub { margin-bottom: 40px; }
+
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 18px;
+    margin-bottom: 28px;
+  }
+  .contact-item-icon {
+    width: 46px; height: 46px; background: var(--green-pale);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0; color: var(--green-dark);
+    border-radius: 2px;
+  }
+  .contact-item-label {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.68rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--stone); margin-bottom: 4px;
+  }
+  .contact-item-value {
+    font-size: 1rem; color: var(--text); font-weight: 400;
+  }
+  .contact-item-value a { color: var(--green); text-decoration: none; }
+  .contact-item-value a:hover { text-decoration: underline; }
+
+  .contact-form-wrapper {
+    background: var(--beige);
+    padding: 52px 48px;
+  }
+  .form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 700; margin-bottom: 32px;
+    color: var(--text);
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 20px; }
+  .form-group label {
+    display: block;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.68rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--stone); margin-bottom: 8px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%; padding: 14px 16px;
+    background: var(--white); border: 1.5px solid var(--beige-mid);
+    font-family: 'Cormorant Garamond', serif; font-size: 1rem;
+    color: var(--text); outline: none;
+    transition: border-color .2s;
+    appearance: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--green); }
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-note {
+    font-size: 0.85rem; color: var(--stone); font-style: italic;
+    margin-bottom: 24px; line-height: 1.6;
+    border-left: 3px solid var(--green); padding-left: 14px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text);
+    color: rgba(255,255,255,.7);
+    padding: 60px 8% 40px;
+  }
+  .footer-inner {
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+
+  .footer-brand { }
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; font-weight: 700; color: white; margin-bottom: 14px;
+  }
+  .footer-logo span { color: var(--green-light); }
+  .footer-tagline {
+    font-size: 0.95rem; font-weight: 300; line-height: 1.7;
+    font-style: italic; max-width: 320px;
+  }
+
+  .footer-col h4 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 0.7rem; letter-spacing: .18em; text-transform: uppercase;
+    color: white; margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul a {
+    text-decoration: none; color: rgba(255,255,255,.6);
+    font-size: 0.9rem;
+    transition: color .2s;
+  }
+  .footer-col ul a:hover { color: var(--green-light); }
+
+  .footer-bottom {
+    padding-top: 28px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.8rem; color: rgba(255,255,255,.4);
+  }
+  .footer-bottom a { color: var(--green-light); text-decoration: none; }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(20,15,10,.92);
+    align-items: center; justify-content: center;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox img {
+    max-width: 90vw; max-height: 90vh;
+    object-fit: contain;
+    box-shadow: 0 20px 80px rgba(0,0,0,.6);
+  }
+  .lightbox-close {
+    position: absolute; top: 24px; right: 32px;
+    color: white; font-size: 2rem; cursor: pointer;
+    background: none; border: none; line-height: 1;
+    opacity: .7; transition: opacity .2s;
+  }
+  .lightbox-close:hover { opacity: 1; }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    #hero { grid-template-columns: 1fr; }
+    .hero-right { height: 50vw; }
+    #about, #contact, #service-area { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .portfolio-grid { grid-template-columns: 1fr 1fr; }
+    .portfolio-item:nth-child(1),
+    .portfolio-item:nth-child(5),
+    .portfolio-item:nth-child(8) { grid-column: span 2; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    nav .nav-links { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    section { padding: 70px 5%; }
+    .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
+    .portfolio-item:nth-child(n) { grid-column: span 1; aspect-ratio: 4/3; }
+    .form-row { grid-template-columns: 1fr; }
+    .contact-form-wrapper { padding: 36px 24px; }
+    .footer-inner { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#hero" class="nav-logo">
+    <div class="nav-logo-icon">O</div>
+    <div class="nav-logo-text">
+      Ottawa Stone Works
+      <span>Est. 2000 · Orleans & Rockland</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#service-area">Service Area</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Ottawa's Premier Stone Craftsmen</div>
+    <h1 class="hero-title">
+      Built to Last.<br>
+      <span class="accent">Crafted to Impress.</span>
+    </h1>
+    <p class="hero-desc">
+      For over 25 years, Ottawa Stone Works has been transforming outdoor spaces across Orleans and Rockland with handcrafted stone masonry that stands the test of time.
+    </p>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">25+</div>
+        <div class="hero-stat-label">Years in Business</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">500+</div>
+        <div class="hero-stat-label">Projects Completed</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">100%</div>
+        <div class="hero-stat-label">Local & Family Owned</div>
+      </div>
+    </div>
+    <div class="hero-buttons">
+      <a href="#portfolio" class="btn-primary">View Our Work</a>
+      <a href="#contact" class="btn-outline">Free Estimate</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="/mnt/user-data/uploads/IMG_8793.JPG" alt="Luxury paver patio with pool">
+    <div class="hero-badge">Family Owned &amp; Operated</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-text reveal">
+    <div class="section-label">Our Story</div>
+    <h2 class="section-title">A Quarter Century of Stone Craftsmanship</h2>
+    <div class="about-body">
+      <p>Ottawa Stone Works was founded on a simple belief: <strong>every property deserves a beautiful, enduring outdoor space.</strong> For over 25 years, our family-owned business has served the Orleans and Rockland communities with pride, skill, and an unwavering commitment to quality.</p>
+      <p>From elegant front entranceways and multi-level patios to intricate walkways and raised garden beds, every project is approached with the same <strong>care and attention to detail</strong> that has earned us a reputation as one of Ottawa's most trusted masonry companies.</p>
+      <p>We work exclusively with premium interlock and natural stone products, ensuring that each project not only looks stunning on day one — but continues to impress for decades to come.</p>
+    </div>
+    <div class="about-signature">— Ottawa Stone Works</div>
+  </div>
+  <div class="about-visual reveal">
+    <img class="about-img-main" src="/mnt/user-data/uploads/IMG_2098.jpg" alt="Professional stone installation">
+    <img class="about-img-accent" src="/mnt/user-data/uploads/IMG_3259.jpg" alt="Detail stonework">
+    <div class="about-years-badge">
+      <div class="num">25</div>
+      <div class="lbl">Years of<br>Excellence</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header reveal">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Expert Stone &amp; Interlock Services</h2>
+    <p class="section-sub">From concept to completion, we handle every aspect of your stone masonry project with expertise built over 25 years.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <span class="service-icon">🏛️</span>
+      <div class="service-name">Patios &amp; Terraces</div>
+      <div class="service-desc">Multi-level patio designs with raised features, seating walls, and integrated planters. Perfect for entertaining and relaxing outdoors.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <span class="service-icon">🏠</span>
+      <div class="service-name">Front Entranceways</div>
+      <div class="service-desc">Elegant driveway borders, walkways, and front steps that elevate your home's curb appeal and create a lasting first impression.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <span class="service-icon">🪜</span>
+      <div class="service-name">Steps &amp; Stairs</div>
+      <div class="service-desc">Beautifully crafted interlock and stone steps with precision-cut treads and contrasting accents for safe, stunning access points.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <span class="service-icon">🛤️</span>
+      <div class="service-name">Walkways &amp; Paths</div>
+      <div class="service-desc">Functional and decorative walkways with detailed border designs, curved edges, and premium paver selections to suit any style.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <span class="service-icon">🌿</span>
+      <div class="service-name">Garden Walls &amp; Planters</div>
+      <div class="service-desc">Retaining walls, raised garden beds, and decorative planter boxes that add structure and beauty to your outdoor landscape.</div>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <span class="service-icon">🌊</span>
+      <div class="service-name">Pool Surrounds</div>
+      <div class="service-desc">Slip-resistant, premium paver surrounds that create a resort-style atmosphere while complementing your pool and outdoor living area.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-header reveal">
+    <div>
+      <div class="section-label">Our Work</div>
+      <h2 class="section-title">Recent Projects</h2>
+    </div>
+    <p class="section-sub" style="max-width:380px;">A selection of completed projects across Orleans and Rockland, Ontario.</p>
+  </div>
+
+  <div class="portfolio-grid reveal">
+    <div class="portfolio-item" onclick="openLightbox(this)">
+      <img src="/mnt/user-data/uploads/IMG_2263.jpg" alt="Multi-level patio with raised planters">
+      <div class="portfolio-overlay">
+        <div class="portfolio-overlay-text">Multi-Level Backyard Patio<span>With Raised Planters & Steps</span></div>
+      </div>
+    </div>
+    <div class="portfolio-item" onclick="openLightbox(this)">
+      <img src="/mnt/user-data/uploads/IMG_2058.jpg" alt="Front driveway interlock">
+      <div class="portfolio-overlay">
+        <div class="portfolio-overlay-text">Front Entranceway<span>Driveway & Step Restoration</span></div>
+      </div>
+    </div>
+    <div class="portfolio-item" onclick="openLightbox(this)">
+      <img src="/mnt/user-data/uploads/IMG_2098.jpg" alt="Front walkway and steps">
+      <div class="portfolio-overlay">
+        <div class="portfolio-overlay-text">Elegant Front Walkway<span>Multi-Tone Interlock Steps</span></div>
+      </div>
+    </div>
+    <div class="portfolio-item" onclick="openLightbox(this)">
+      <img src="/mnt/user-data/uploads/IMG_3259.jpg" alt="Side walkway detail">
+      <div class="portfolio-overlay">
+        <div class="portfolio-overlay-text">Decorative Side Walkway<span>Herringbone Detail Work</span></div>
+      </div>
+    </div>
+    <div class="portfolio-item" onclick="openLightbox(this)">
+      <img src="/mnt/user-data/uploads/IMG_4587.jpg" alt="Backyard patio with AC unit surround">
+      <div class="portfolio-overlay">
+        <div class="portfolio-overlay-text">Backyard Patio & Surround<span>Modern Two-Tone Design</span></div>
+      </div>
+    </div>
+    <div class="portfolio-item" onclick="openLightbox(this)">
+      <img src="/mnt/user-data/uploads/IMG_8753.JPG" alt="Driveway and front path">
+      <div class="portfolio-overlay">
+        <div class="portfolio-overlay-text">Full Front Driveway<span>With Garden Border & Steps</span></div>
+      </div>
+    </div>
+    <div class="portfolio-item" onclick="openLightbox(this)">
+      <img src="/mnt/user-data/uploads/IMG_8790.JPG" alt="Backyard garden patio">
+      <div class="portfolio-overlay">
+        <div class="portfolio-overlay-text">Garden Patio Extension<span>Curved Border Design</span></div>
+      </div>
+    </div>
+    <div class="portfolio-item" onclick="openLightbox(this)">
+      <img src="/mnt/user-data/uploads/IMG_8793.JPG" alt="Pool patio surrounds">
+      <div class="portfolio-overlay">
+        <div class="portfolio-overlay-text">Pool Patio Surround<span>Full Backyard Transformation</span></div>
+      </div>
+    </div>
+    <div class="portfolio-item" onclick="openLightbox(this)">
+      <img src="/mnt/user-data/uploads/IMG_8796.JPG" alt="Interlock side path">
+      <div class="portfolio-overlay">
+        <div class="portfolio-overlay-text">Side Yard Pathway<span>Multi-Size Paver Design</span></div>
+      </div>
+    </div>
+    <div class="portfolio-item" onclick="openLightbox(this)">
+      <img src="/mnt/user-data/uploads/IMG_8803.JPG" alt="Front entrance stairs">
+      <div class="portfolio-overlay">
+        <div class="portfolio-overlay-text">Front Entrance Stairs<span>Dark Accent Tread Caps</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section id="service-area">
+  <div class="reveal">
+    <div class="section-label">Where We Work</div>
+    <h2 class="section-title">Proudly Serving Orleans &amp; Rockland</h2>
+    <p class="section-sub">We are a local company rooted in the Orleans and Rockland communities. All projects are completed personally by our experienced team — no subcontracting, no shortcuts.</p>
+    <div class="area-tags">
+      <div class="area-tag featured">Orléans</div>
+      <div class="area-tag featured">Rockland</div>
+      <div class="area-tag">Cumberland</div>
+      <div class="area-tag">Navan</div>
+      <div class="area-tag">Vars</div>
+      <div class="area-tag">Embrun</div>
+      <div class="area-tag">Russell</div>
+    </div>
+    <p style="color:rgba(255,255,255,.55); font-size:0.85rem; margin-top:20px; font-style:italic;">
+      * Primary service area is Orléans and Rockland. Surrounding areas considered on request.
+    </p>
+  </div>
+  <div class="area-map reveal">
+    <h3>Why Local Matters to Us</h3>
+    <div class="area-detail">
+      <span class="area-detail-icon">📍</span>
+      <div>
+        <strong style="color:white">Deep Community Roots</strong><br>
+        We've built relationships in Orleans and Rockland for 25 years. Our reputation is everything, and our neighbours are our best customers.
+      </div>
+    </div>
+    <div class="area-detail">
+      <span class="area-detail-icon">🚛</span>
+      <div>
+        <strong style="color:white">Quick Response Times</strong><br>
+        Being local means faster estimates, quicker project starts, and easy communication throughout your project.
+      </div>
+    </div>
+    <div class="area-detail">
+      <span class="area-detail-icon">🤝</span>
+      <div>
+        <strong style="color:white">Owner-Operated Guarantee</strong><br>
+        Your project is handled personally. We don't subcontract — you get the same skilled hands from first stone to last.
+      </div>
+    </div>
+    <div class="area-detail">
+      <span class="area-detail-icon">⭐</span>
+      <div>
+        <strong style="color:white">Trusted by Neighbours</strong><br>
+        Most of our work comes from referrals. When you're happy, your neighbours find out — and that keeps us honest.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testimonials-header reveal">
+    <div class="section-label">Client Reviews</div>
+    <h2 class="section-title">What Our Neighbours Say</h2>
+  </div>
+  <div class="testimonials-grid reveal">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Absolutely stunning work on our backyard patio. They transformed a plain concrete slab into a beautiful multi-level space we use every single day. Couldn't be happier — worth every penny."</p>
+      <div class="testimonial-author">The Tremblay Family</div>
+      <div class="testimonial-location">Orléans, ON</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"Our front entranceway was redone completely and it looks incredible. The attention to detail and the quality of the stonework is beyond what we expected. Professional from start to finish."</p>
+      <div class="testimonial-author">Marc &amp; Diane L.</div>
+      <div class="testimonial-location">Rockland, ON</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-text">"I've had three projects done over the years — a driveway, a backyard patio, and a side walkway. Each one was done with the same care and quality. These guys are the real deal."</p>
+      <div class="testimonial-author">Robert G.</div>
+      <div class="testimonial-location">Orléans, ON</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info reveal">
+    <div class="section-label">Contact Us</div>
+    <h2 class="section-title">Request Your Free Estimate</h2>
+    <p class="section-sub">Ready to transform your outdoor space? Reach out and we'll set up a free, no-obligation consultation at your property.</p>
+
+    <div style="margin-top: 40px;">
+      <div class="contact-item">
+        <div class="contact-item-icon">📞</div>
+        <div>
+          <div class="contact-item-label">Phone</div>
+          <div class="contact-item-value"><a href="tel:+16131234567">(613) 123-4567</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">✉️</div>
+        <div>
+          <div class="contact-item-label">Email</div>
+          <div class="contact-item-value"><a href="mailto:info@ottawastoneworks.ca">info@ottawastoneworks.ca</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">📍</div>
+        <div>
+          <div class="contact-item-label">Service Area</div>
+          <div class="contact-item-value">Orléans &amp; Rockland, ON<br><small style="color:var(--stone)">Surrounding areas on request</small></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">🕐</div>
+        <div>
+          <div class="contact-item-label">Hours</div>
+          <div class="contact-item-value">Monday – Saturday: 7am – 6pm<br><small style="color:var(--stone)">Spring through Fall season</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form-wrapper reveal">
+    <div class="form-title">Tell Us About Your Project</div>
+    <div class="form-note">
+      ⚠️ We currently only accept projects in the <strong>Orléans and Rockland</strong> area of Ottawa. Please confirm your location below.
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" placeholder="Jean">
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" placeholder="Tremblay">
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="(613) 000-0000">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@example.com">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Your Location</label>
+      <select>
+        <option value="">Select your area...</option>
+        <option>Orléans, ON</option>
+        <option>Rockland, ON</option>
+        <option>Cumberland, ON</option>
+        <option>Navan, ON</option>
+        <option>Vars, ON</option>
+        <option>Embrun, ON</option>
+        <option>Russell, ON</option>
+        <option>Other (please specify in message)</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Type of Project</label>
+      <select>
+        <option value="">Select a service...</option>
+        <option>Patio / Terrace</option>
+        <option>Front Entranceway / Driveway</option>
+        <option>Steps & Stairs</option>
+        <option>Walkway / Pathway</option>
+        <option>Garden Wall / Planter</option>
+        <option>Pool Surround</option>
+        <option>Multiple / Full Yard</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Project Description</label>
+      <textarea placeholder="Describe your project, approximate size, timeline, or any questions you have..."></textarea>
+    </div>
+
+    <button class="btn-primary" style="width:100%; text-align:center; font-size:0.82rem;" onclick="handleSubmit()">
+      Send My Request →
+    </button>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">Ottawa <span>Stone</span> Works</div>
+      <p class="footer-tagline">"Building beautiful, lasting outdoor spaces for the Orleans and Rockland community — one stone at a time, for over 25 years."</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#service-area">Service Area</a></li>
+        <li><a href="#contact">Get a Quote</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="#services">Patios & Terraces</a></li>
+        <li><a href="#services">Front Entranceways</a></li>
+        <li><a href="#services">Steps & Stairs</a></li>
+        <li><a href="#services">Walkways & Paths</a></li>
+        <li><a href="#services">Garden Walls</a></li>
+        <li><a href="#services">Pool Surrounds</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Ottawa Stone Works. All rights reserved. Serving Orléans &amp; Rockland, ON.</span>
+    <span>Family owned &amp; operated since 2000</span>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script>
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Lightbox
+  function openLightbox(item) {
+    const img = item.querySelector('img');
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // Form submit
+  function handleSubmit() {
+    const location = document.querySelector('#contact select').value;
+    if (!location) {
+      alert('Please select your location before submitting.');
+      return;
+    }
+    alert('Thank you for your message! We\'ll be in touch within 1-2 business days to schedule your free estimate.');
+  }
+</script>
+</body>
+</html>
