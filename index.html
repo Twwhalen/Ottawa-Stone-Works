@@ -3,7 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ottawa Stone Works – Premium Stone Masonry</title>
+    <title>
+      Ottawa Stone Works | Interlock & Stone Masonry – Orleans & Rockland
+    </title>
+    <meta
+      name="description"
+      content="Ottawa Stone Works – 25+ years of expert interlock, patio, walkway, and stone masonry in Orleans and Rockland, Ottawa. Family owned. Free estimates. Call (613) 282-2152."
+    />
+    <meta
+      name="keywords"
+      content="interlock Ottawa, stone masonry Orleans, patio installation Rockland, interlock contractor Ottawa, paver patio Orleans Ontario, stone steps Rockland, masonry Ottawa"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      content="Ottawa Stone Works | Interlock & Stone Masonry"
+    />
+    <meta
+      property="og:description"
+      content="25+ years of expert interlock patios, walkways, and stone masonry serving Orleans and Rockland, Ottawa."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.ottawastoneworks.com" />
+    <link rel="canonical" href="https://www.ottawastoneworks.com" />
+
+    <!-- Schema markup for Google local business -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Ottawa Stone Works",
+        "description": "Expert interlock, patio, walkway, steps, and stone masonry serving Orleans and Rockland, Ottawa for over 25 years.",
+        "telephone": "+16132822152",
+        "email": "kelly40whalen@gmail.com",
+        "url": "https://www.ottawastoneworks.com",
+        "areaServed": ["Orleans", "Rockland", "Cumberland", "Navan", "Ottawa"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "ON",
+          "addressCountry": "CA"
+        },
+        "openingHours": "Mo-Sa 08:00-17:00",
+        "priceRange": "$$",
+        "foundingDate": "2000",
+        "sameAs": []
+      }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Libre+Baskerville:wght@400;700&display=swap"
@@ -50,7 +96,7 @@
         align-items: center;
         justify-content: space-between;
         padding: 18px 5%;
-        background: rgba(253, 252, 249, 0.95);
+        background: rgba(253, 252, 249, 0.97);
         backdrop-filter: blur(12px);
         border-bottom: 1px solid var(--beige-dark);
         transition: box-shadow 0.3s;
@@ -104,6 +150,7 @@
         display: flex;
         gap: 36px;
         list-style: none;
+        align-items: center;
       }
       .nav-links a {
         text-decoration: none;
@@ -149,6 +196,73 @@
       }
       .nav-cta::after {
         display: none !important;
+      }
+
+      /* Hamburger */
+      .nav-hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 4px;
+        background: none;
+        border: none;
+      }
+      .nav-hamburger span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--text);
+        transition: all 0.3s;
+      }
+      .nav-hamburger.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .nav-hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .nav-hamburger.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* Mobile menu */
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 78px;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        background: var(--white);
+        border-bottom: 2px solid var(--green);
+        padding: 24px 5% 32px;
+        flex-direction: column;
+        gap: 0;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+      }
+      .mobile-menu.open {
+        display: flex;
+      }
+      .mobile-menu a {
+        text-decoration: none;
+        color: var(--text);
+        font-family: "Playfair Display", serif;
+        font-size: 1.3rem;
+        font-weight: 700;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--beige-dark);
+      }
+      .mobile-menu a:last-child {
+        border-bottom: none;
+        margin-top: 8px;
+        background: var(--green);
+        color: white;
+        text-align: center;
+        padding: 16px;
+        font-family: "Libre Baskerville", serif;
+        font-size: 0.85rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
       }
 
       /* HERO */
@@ -229,6 +343,7 @@
       .hero-buttons {
         display: flex;
         gap: 16px;
+        flex-wrap: wrap;
       }
       .btn-primary {
         background: var(--green);
@@ -346,6 +461,41 @@
         max-width: 580px;
       }
 
+      /* TRUST BAR */
+      #trust-bar {
+        background: var(--green-dark);
+        padding: 20px 8%;
+        display: flex;
+        justify-content: center;
+        gap: 60px;
+        flex-wrap: wrap;
+      }
+      .trust-item {
+        color: white;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .trust-item-num {
+        font-family: "Playfair Display", serif;
+        font-size: 1.6rem;
+        font-weight: 900;
+        color: white;
+      }
+      .trust-item-text {
+        font-family: "Libre Baskerville", serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.75);
+        line-height: 1.4;
+      }
+      .trust-divider {
+        width: 1px;
+        background: rgba(255, 255, 255, 0.2);
+        align-self: stretch;
+      }
+
       /* ABOUT */
       #about {
         background: var(--white);
@@ -380,6 +530,7 @@
       }
       .about-visual {
         position: relative;
+        padding-bottom: 30px;
       }
       .about-img-main {
         width: 100%;
@@ -389,7 +540,7 @@
       }
       .about-img-accent {
         position: absolute;
-        bottom: -30px;
+        bottom: 0px;
         right: -30px;
         width: 48%;
         aspect-ratio: 1;
@@ -491,38 +642,6 @@
         align-items: flex-end;
         margin-bottom: 40px;
       }
-
-      /* Category tabs */
-      .portfolio-tabs {
-        display: flex;
-        gap: 4px;
-        margin-bottom: 40px;
-        flex-wrap: wrap;
-      }
-      .portfolio-tab {
-        padding: 10px 24px;
-        cursor: pointer;
-        font-family: "Libre Baskerville", serif;
-        font-size: 0.72rem;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        background: var(--beige);
-        color: var(--stone);
-        border: 1.5px solid var(--beige-dark);
-        transition: all 0.2s;
-      }
-      .portfolio-tab:hover {
-        background: var(--green-pale);
-        color: var(--green-dark);
-        border-color: var(--green);
-      }
-      .portfolio-tab.active {
-        background: var(--green);
-        color: white;
-        border-color: var(--green);
-      }
-
-      /* Category sections */
       .portfolio-category {
         margin-bottom: 60px;
       }
@@ -549,14 +668,10 @@
         background: var(--green);
         flex-shrink: 0;
       }
-
       .portfolio-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 10px;
-      }
-      .portfolio-grid.two-col {
-        grid-template-columns: repeat(2, 1fr);
       }
       .portfolio-item {
         position: relative;
@@ -611,6 +726,90 @@
         letter-spacing: 0.08em;
         margin-top: 2px;
         color: rgba(255, 255, 255, 0.8);
+      }
+
+      /* REVIEW CTA */
+      #review-cta {
+        background: var(--beige);
+        padding: 70px 8%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        flex-wrap: wrap;
+      }
+      .review-cta-left {
+        max-width: 560px;
+      }
+      .review-cta-left .section-label {
+        margin-bottom: 12px;
+      }
+      .review-cta-left h2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.6rem, 3vw, 2.4rem);
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 16px;
+        line-height: 1.2;
+      }
+      .review-cta-left p {
+        font-size: 1.05rem;
+        font-weight: 300;
+        color: var(--text-light);
+        line-height: 1.8;
+      }
+      .review-stars {
+        display: flex;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+      .review-star {
+        width: 28px;
+        height: 28px;
+        background: #fbbc04;
+        clip-path: polygon(
+          50% 0%,
+          61% 35%,
+          98% 35%,
+          68% 57%,
+          79% 91%,
+          50% 70%,
+          21% 91%,
+          32% 57%,
+          2% 35%,
+          39% 35%
+        );
+      }
+      .btn-google {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: white;
+        border: 2px solid var(--beige-dark);
+        padding: 14px 28px;
+        text-decoration: none;
+        color: var(--text);
+        font-family: "Libre Baskerville", serif;
+        font-size: 0.8rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition: all 0.2s;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      }
+      .btn-google:hover {
+        border-color: var(--green);
+        color: var(--green);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        transform: translateY(-2px);
+      }
+      .btn-google-g {
+        font-family: Arial, sans-serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #4285f4, #34a853, #fbbc04, #ea4335);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
 
       /* SERVICE AREA */
@@ -689,64 +888,79 @@
         font-weight: 700;
       }
 
-      /* TESTIMONIALS */
-      #testimonials {
-        background: var(--beige);
-      }
-      .testimonials-header {
-        max-width: 600px;
-        margin-bottom: 60px;
-      }
-      .testimonials-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-      }
-      .testimonial-card {
+      /* FAQ */
+      #faq {
         background: var(--white);
-        padding: 40px 32px;
-        position: relative;
       }
-      .testimonial-card::before {
-        content: "\201C";
-        position: absolute;
-        top: 20px;
-        right: 28px;
+      .faq-header {
+        max-width: 600px;
+        margin-bottom: 52px;
+      }
+      .faq-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+      }
+      .faq-item {
+        background: var(--beige);
+        padding: 0;
+        overflow: hidden;
+      }
+      .faq-question {
+        width: 100%;
+        text-align: left;
+        padding: 28px 32px;
         font-family: "Playfair Display", serif;
-        font-size: 5rem;
-        color: var(--green-pale);
-        line-height: 1;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--text);
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        transition: color 0.2s;
       }
-      .testimonial-stars {
+      .faq-question:hover {
         color: var(--green);
-        font-size: 0.85rem;
-        margin-bottom: 16px;
       }
-      .testimonial-text {
-        font-size: 1rem;
+      .faq-question.open {
+        color: var(--green);
+      }
+      .faq-icon {
+        font-size: 1.4rem;
+        color: var(--green);
+        flex-shrink: 0;
+        line-height: 1;
+        transition: transform 0.3s;
+        font-family: "Libre Baskerville", serif;
+      }
+      .faq-question.open .faq-icon {
+        transform: rotate(45deg);
+      }
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.4s ease,
+          padding 0.3s;
+      }
+      .faq-answer.open {
+        max-height: 300px;
+      }
+      .faq-answer-inner {
+        padding: 0 32px 28px;
+        font-size: 0.98rem;
         font-weight: 300;
         line-height: 1.8;
         color: var(--text-light);
-        margin-bottom: 24px;
-        font-style: italic;
-      }
-      .testimonial-author {
-        font-family: "Libre Baskerville", serif;
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        color: var(--green-dark);
-        text-transform: uppercase;
-      }
-      .testimonial-location {
-        font-size: 0.78rem;
-        color: var(--stone);
-        margin-top: 2px;
       }
 
       /* CONTACT */
       #contact {
-        background: var(--white);
+        background: var(--beige);
         display: grid;
         grid-template-columns: 1fr 1.2fr;
         gap: 80px;
@@ -799,7 +1013,7 @@
         text-decoration: underline;
       }
       .contact-form-wrapper {
-        background: var(--beige);
+        background: var(--white);
         padding: 52px 48px;
       }
       .form-title {
@@ -831,7 +1045,7 @@
       .form-group textarea {
         width: 100%;
         padding: 14px 16px;
-        background: var(--white);
+        background: var(--beige);
         border: 1.5px solid var(--beige-mid);
         font-family: "Cormorant Garamond", serif;
         font-size: 1rem;
@@ -844,6 +1058,7 @@
       .form-group select:focus,
       .form-group textarea:focus {
         border-color: var(--green);
+        background: var(--white);
       }
       .form-group textarea {
         resize: vertical;
@@ -888,6 +1103,16 @@
         line-height: 1.7;
         font-style: italic;
         max-width: 320px;
+        margin-bottom: 24px;
+      }
+      .footer-contact-line {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 6px;
+      }
+      .footer-contact-line a {
+        color: var(--green-light);
+        text-decoration: none;
       }
       .footer-col h4 {
         font-family: "Libre Baskerville", serif;
@@ -919,10 +1144,28 @@
         align-items: center;
         font-size: 0.8rem;
         color: rgba(255, 255, 255, 0.4);
+        flex-wrap: wrap;
+        gap: 8px;
       }
-      .footer-bottom a {
-        color: var(--green-light);
+
+      /* MOBILE STICKY CALL BUTTON */
+      .mobile-call-btn {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 150;
+        background: var(--green);
+        color: white;
+        padding: 18px;
+        text-align: center;
         text-decoration: none;
+        font-family: "Libre Baskerville", serif;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
       }
 
       /* LIGHTBOX */
@@ -1005,17 +1248,23 @@
           grid-template-columns: 1fr;
         }
         .hero-right {
-          height: 50vw;
+          height: 55vw;
         }
         #about,
         #contact,
         #service-area {
           grid-template-columns: 1fr;
         }
+        .about-visual {
+          padding-bottom: 50px;
+        }
+        .about-img-accent {
+          right: 0;
+        }
         .services-grid {
           grid-template-columns: 1fr 1fr;
         }
-        .testimonials-grid {
+        .faq-grid {
           grid-template-columns: 1fr;
         }
         .portfolio-grid {
@@ -1030,10 +1279,34 @@
         nav .nav-links {
           display: none;
         }
+        .nav-hamburger {
+          display: flex;
+        }
+        .mobile-call-btn {
+          display: block;
+        }
+        body {
+          padding-bottom: 62px;
+        }
+        #trust-bar {
+          gap: 30px;
+        }
+        .trust-divider {
+          display: none;
+        }
+        #review-cta {
+          flex-direction: column;
+        }
       }
       @media (max-width: 600px) {
         section {
           padding: 70px 5%;
+        }
+        #trust-bar {
+          padding: 20px 5%;
+          flex-direction: column;
+          gap: 20px;
+          align-items: flex-start;
         }
         .services-grid,
         .portfolio-grid {
@@ -1041,6 +1314,9 @@
         }
         .portfolio-item.wide {
           grid-column: span 1;
+        }
+        .portfolio-item.wide img {
+          aspect-ratio: 4/3;
         }
         .form-row {
           grid-template-columns: 1fr;
@@ -1051,10 +1327,18 @@
         .footer-inner {
           grid-template-columns: 1fr;
         }
+        .hero-stats {
+          gap: 24px;
+        }
       }
     </style>
   </head>
   <body>
+    <!-- MOBILE STICKY CALL -->
+    <a href="tel:+16132822152" class="mobile-call-btn"
+      >Call Now for a Free Estimate — (613) 282-2152</a
+    >
+
     <!-- NAV -->
     <nav id="mainNav">
       <a href="#hero" class="nav-logo">
@@ -1068,10 +1352,22 @@
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#service-area">Service Area</a></li>
-        <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact" class="nav-cta">Free Estimate</a></li>
       </ul>
+      <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about" onclick="closeMenu()">About</a>
+      <a href="#services" onclick="closeMenu()">Services</a>
+      <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
+      <a href="#faq" onclick="closeMenu()">FAQ</a>
+      <a href="#contact" onclick="closeMenu()">Get a Free Estimate</a>
+    </div>
 
     <!-- HERO -->
     <section id="hero">
@@ -1106,10 +1402,51 @@
         </div>
       </div>
       <div class="hero-right">
-        <img src="IMG_8793.JPG" alt="Luxury paver patio with pool" />
+        <img
+          src="Resized_20210530_193158.JPG"
+          alt="Luxury interlock patio with pool Orleans Ottawa"
+        />
         <div class="hero-badge">Family Owned &amp; Operated</div>
       </div>
     </section>
+
+    <!-- TRUST BAR -->
+    <div id="trust-bar">
+      <div class="trust-item">
+        <div>
+          <div class="trust-item-num">25+</div>
+          <div class="trust-item-text">Years of<br />Experience</div>
+        </div>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <div>
+          <div class="trust-item-num">500+</div>
+          <div class="trust-item-text">Projects<br />Completed</div>
+        </div>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <div>
+          <div class="trust-item-num">Free</div>
+          <div class="trust-item-text">On-Site<br />Estimates</div>
+        </div>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <div>
+          <div class="trust-item-num">Local</div>
+          <div class="trust-item-text">Orleans &amp;<br />Rockland</div>
+        </div>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <div>
+          <div class="trust-item-num">No</div>
+          <div class="trust-item-text">Sub-<br />contracting</div>
+        </div>
+      </div>
+    </div>
 
     <!-- ABOUT -->
     <section id="about">
@@ -1146,12 +1483,12 @@
         <img
           class="about-img-main"
           src="IMG_2098.jpg"
-          alt="Professional stone installation"
+          alt="Professional interlock installation Orleans Ontario"
         />
         <img
           class="about-img-accent"
           src="IMG_0930.jpg"
-          alt="Detail stonework"
+          alt="Stone masonry detail work Ottawa"
         />
         <div class="about-years-badge">
           <div class="num">25</div>
@@ -1235,14 +1572,13 @@
         </p>
       </div>
 
-      <!-- Category: Patios & Backyard -->
       <div class="portfolio-category reveal">
         <div class="category-label">Patios &amp; Backyard Spaces</div>
         <div class="portfolio-grid">
           <div class="portfolio-item wide" onclick="openLightbox(this)">
             <img
               src="Resized_20210530_193158.JPG"
-              alt="Pool patio full backyard at sunset"
+              alt="Full backyard pool patio Orleans Ottawa"
             />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
@@ -1251,7 +1587,10 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_8793.JPG" alt="Pool patio surround" />
+            <img
+              src="IMG_8793.JPG"
+              alt="Pool patio surround interlock Rockland"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Pool Patio Surround<span>Full Backyard Transformation</span>
@@ -1259,7 +1598,7 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_2263.jpg" alt="Multi-level backyard patio" />
+            <img src="IMG_2263.jpg" alt="Multi-level backyard patio Orleans" />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Multi-Level Backyard Patio<span
@@ -1269,10 +1608,7 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img
-              src="IMG_4583.jpg"
-              alt="Backyard patio with border and steps"
-            />
+            <img src="IMG_4583.jpg" alt="Backyard patio dark border Ottawa" />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Backyard Patio<span>Dark Border &amp; Raised Steps</span>
@@ -1280,7 +1616,10 @@
             </div>
           </div>
           <div class="portfolio-item wide" onclick="openLightbox(this)">
-            <img src="IMG_3889.jpg" alt="Large backyard patio with steps" />
+            <img
+              src="IMG_3889.jpg"
+              alt="Large interlock backyard patio Ottawa"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Large Backyard Patio<span
@@ -1290,7 +1629,7 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_4587.jpg" alt="Backyard patio modern design" />
+            <img src="IMG_4587.jpg" alt="Backyard patio two-tone Orleans" />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Backyard Patio<span>Modern Two-Tone Design</span>
@@ -1298,7 +1637,7 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_0968.jpg" alt="Backyard patio with pergola" />
+            <img src="IMG_0968.jpg" alt="Backyard patio pergola interlock" />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Backyard Patio with Pergola<span>Large Format Pavers</span>
@@ -1306,7 +1645,7 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_0969.jpg" alt="Backyard patio hot tub area" />
+            <img src="IMG_0969.jpg" alt="Hot tub patio interlock Orleans" />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Patio &amp; Hot Tub Surround<span>Two-Tone Border Design</span>
@@ -1314,7 +1653,7 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_0970.jpg" alt="Backyard patio seating area" />
+            <img src="IMG_0970.jpg" alt="Covered outdoor patio interlock" />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Covered Outdoor Living Space<span>Large Format Interlock</span>
@@ -1322,7 +1661,10 @@
             </div>
           </div>
           <div class="portfolio-item wide" onclick="openLightbox(this)">
-            <img src="IMG_2225.jpg" alt="Large backyard patio installation" />
+            <img
+              src="IMG_2225.jpg"
+              alt="Large backyard patio interlock Rockland"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Large Backyard Patio<span>With Raised Steps &amp; Border</span>
@@ -1330,7 +1672,7 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_2226.jpg" alt="Backyard patio steps" />
+            <img src="IMG_2226.jpg" alt="Backyard patio dark accent steps" />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Backyard Steps &amp; Patio<span>Dark Accent Treads</span>
@@ -1338,10 +1680,7 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img
-              src="IMG_3653.jpg"
-              alt="Backyard patio with steps and border"
-            />
+            <img src="IMG_3653.jpg" alt="Backyard patio clean border Ottawa" />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Backyard Patio<span>Clean Border &amp; Step Design</span>
@@ -1351,12 +1690,14 @@
         </div>
       </div>
 
-      <!-- Category: Front Entranceways & Walkways -->
       <div class="portfolio-category reveal">
         <div class="category-label">Front Entranceways &amp; Walkways</div>
         <div class="portfolio-grid">
           <div class="portfolio-item wide" onclick="openLightbox(this)">
-            <img src="IMG_2098.jpg" alt="Front walkway and steps" />
+            <img
+              src="IMG_2098.jpg"
+              alt="Front walkway interlock steps Orleans"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Elegant Front Walkway<span>Multi-Tone Interlock Steps</span>
@@ -1364,7 +1705,10 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_3666.jpg" alt="Front walkway large format pavers" />
+            <img
+              src="IMG_3666.jpg"
+              alt="Front walkway large format pavers Ottawa"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Front Walkway<span>Large Format Mixed Pavers</span>
@@ -1374,7 +1718,7 @@
           <div class="portfolio-item" onclick="openLightbox(this)">
             <img
               src="IMG_3678.jpg"
-              alt="Front entranceway with raised planter wall"
+              alt="Front entranceway raised planter interlock"
             />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
@@ -1385,7 +1729,10 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_3879.jpg" alt="Front driveway walkway" />
+            <img
+              src="IMG_3879.jpg"
+              alt="Front driveway walkway interlock Orleans"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Front Driveway Walkway<span>Bordered Interlock Path</span>
@@ -1393,7 +1740,10 @@
             </div>
           </div>
           <div class="portfolio-item wide" onclick="openLightbox(this)">
-            <img src="IMG_4662.jpg" alt="Front walkway with garden border" />
+            <img
+              src="IMG_4662.jpg"
+              alt="Front walkway garden border interlock Ottawa"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Front Walkway &amp; Garden Border<span
@@ -1403,7 +1753,10 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_2058.jpg" alt="Front driveway interlock" />
+            <img
+              src="IMG_2058.jpg"
+              alt="Front driveway interlock step restoration"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Front Entranceway<span>Driveway &amp; Step Restoration</span>
@@ -1411,7 +1764,10 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_8753.JPG" alt="Driveway and front path" />
+            <img
+              src="IMG_8753.JPG"
+              alt="Full front driveway interlock steps Orleans"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Full Front Driveway<span>With Garden Border &amp; Steps</span>
@@ -1419,7 +1775,10 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_3259.jpg" alt="Side walkway detail" />
+            <img
+              src="IMG_3259.jpg"
+              alt="Decorative side walkway herringbone interlock"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Decorative Side Walkway<span>Herringbone Detail Work</span>
@@ -1427,7 +1786,7 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_8790.JPG" alt="Garden patio walkway" />
+            <img src="IMG_8790.JPG" alt="Garden patio curved border walkway" />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Garden Patio Extension<span>Curved Border Design</span>
@@ -1435,7 +1794,10 @@
             </div>
           </div>
           <div class="portfolio-item wide" onclick="openLightbox(this)">
-            <img src="IMG_2212.jpg" alt="Front entranceway with steps" />
+            <img
+              src="IMG_2212.jpg"
+              alt="Front entranceway dark border steps Orleans"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Front Entranceway<span>Dark Border &amp; Step Design</span>
@@ -1443,7 +1805,7 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_8796.JPG" alt="Interlock side path" />
+            <img src="IMG_8796.JPG" alt="Side yard pathway multi-size pavers" />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Side Yard Pathway<span>Multi-Size Paver Design</span>
@@ -1451,7 +1813,10 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_2386.jpg" alt="Front entrance with raised planter" />
+            <img
+              src="IMG_2386.jpg"
+              alt="Front entry raised garden bed planter"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Front Entry &amp; Planter<span>Raised Garden Bed Feature</span>
@@ -1459,7 +1824,10 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_2918.jpg" alt="Front entrance interlock" />
+            <img
+              src="IMG_2918.jpg"
+              alt="Front entrance interlock landing Orleans"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Front Entrance<span>Interlock Landing</span>
@@ -1469,12 +1837,14 @@
         </div>
       </div>
 
-      <!-- Category: Steps, Stairs & Garden Walls -->
       <div class="portfolio-category reveal">
         <div class="category-label">Steps, Stairs &amp; Garden Walls</div>
         <div class="portfolio-grid">
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_4707.jpg" alt="Natural stone commercial steps" />
+            <img
+              src="IMG_4707.jpg"
+              alt="Natural limestone steps commercial Ottawa"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Natural Limestone Steps<span>Commercial Grade Stone Work</span>
@@ -1482,7 +1852,7 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_4688.jpg" alt="Side yard stair pathway" />
+            <img src="IMG_4688.jpg" alt="Side yard stair pathway interlock" />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Side Yard Stair Pathway<span>Multi-Step Access Path</span>
@@ -1490,7 +1860,7 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_4722.jpg" alt="Clean cut stone steps" />
+            <img src="IMG_4722.jpg" alt="Precision cut stone steps Orleans" />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Precision Cut Stone Steps<span>Clean Modern Finish</span>
@@ -1498,7 +1868,10 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_8803.JPG" alt="Front entrance stairs" />
+            <img
+              src="IMG_8803.JPG"
+              alt="Front entrance stairs dark tread caps"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Front Entrance Stairs<span>Dark Accent Tread Caps</span>
@@ -1506,7 +1879,10 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_0930.jpg" alt="Modern front entrance steps" />
+            <img
+              src="IMG_0930.jpg"
+              alt="Modern front steps raised planter Ottawa"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Modern Front Steps<span>Raised Planter Integration</span>
@@ -1514,7 +1890,10 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_3884.jpg" alt="Front porch steps and landing" />
+            <img
+              src="IMG_3884.jpg"
+              alt="Front porch steps stone cap interlock base"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Front Porch Steps &amp; Landing<span
@@ -1524,7 +1903,10 @@
             </div>
           </div>
           <div class="portfolio-item wide" onclick="openLightbox(this)">
-            <img src="IMG_2919.jpg" alt="Raised garden planter wall" />
+            <img
+              src="IMG_2919.jpg"
+              alt="Raised garden planter two-tone block wall Orleans"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Raised Garden Planter<span>Two-Tone Block Wall</span>
@@ -1532,7 +1914,10 @@
             </div>
           </div>
           <div class="portfolio-item" onclick="openLightbox(this)">
-            <img src="IMG_3654.jpg" alt="Raised stone planter bed" />
+            <img
+              src="IMG_3654.jpg"
+              alt="Raised stone planter two-tone accent wall"
+            />
             <div class="portfolio-overlay">
               <div class="portfolio-overlay-text">
                 Raised Stone Planter<span>Two-Tone Accent Wall</span>
@@ -1542,6 +1927,37 @@
         </div>
       </div>
     </section>
+
+    <!-- REVIEW CTA -->
+    <div id="review-cta">
+      <div class="review-cta-left reveal">
+        <div class="section-label">Google Reviews</div>
+        <div class="review-stars">
+          <div class="review-star"></div>
+          <div class="review-star"></div>
+          <div class="review-star"></div>
+          <div class="review-star"></div>
+          <div class="review-star"></div>
+        </div>
+        <h2>Happy with our work? Leave us a Google review.</h2>
+        <p>
+          Reviews help local families in Orleans and Rockland find us. If we did
+          a great job on your project, we'd really appreciate a quick review —
+          it only takes a minute and means the world to a family business.
+        </p>
+      </div>
+      <div class="reveal">
+        <a
+          href="https://g.page/r/YOURPLACEID/review"
+          target="_blank"
+          rel="noopener"
+          class="btn-google"
+        >
+          <span class="btn-google-g">G</span>
+          Leave a Google Review
+        </a>
+      </div>
+    </div>
 
     <!-- SERVICE AREA -->
     <section id="service-area">
@@ -1564,13 +1980,13 @@
         </div>
         <p
           style="
-            color: rgba(255, 255, 255, 0.55);
+            color: rgba(255, 255, 255, 0.5);
             font-size: 0.85rem;
             margin-top: 20px;
             font-style: italic;
           "
         >
-          * Primary service area is Orleans and Rockland. Surrounding areas
+          Primary service area is Orleans and Rockland. Surrounding areas
           considered on request.
         </p>
       </div>
@@ -1612,42 +2028,138 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
-    <section id="testimonials">
-      <div class="testimonials-header reveal">
-        <div class="section-label">Client Reviews</div>
-        <h2 class="section-title">What Our Neighbours Say</h2>
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="faq-header reveal">
+        <div class="section-label">Common Questions</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-sub">
+          Everything you need to know before starting your project.
+        </p>
       </div>
-      <div class="testimonials-grid reveal">
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">
-            "Absolutely stunning work on our backyard patio. They transformed a
-            plain concrete slab into a beautiful multi-level space we use every
-            single day. Couldn't be happier — worth every penny."
-          </p>
-          <div class="testimonial-author">The Tremblay Family</div>
-          <div class="testimonial-location">Orleans, ON</div>
+      <div class="faq-grid reveal">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How long does an interlock patio installation take?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Most residential patio projects take between 3 to 7 days depending
+              on the size and complexity. A straightforward backyard patio can
+              be completed in as little as 2–3 days, while larger projects with
+              custom steps, raised walls, and multiple levels may take up to a
+              week or more. We'll give you a clear timeline during your free
+              estimate.
+            </div>
+          </div>
         </div>
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">
-            "Our front entranceway was redone completely and it looks
-            incredible. The attention to detail and the quality of the stonework
-            is beyond what we expected. Professional from start to finish."
-          </p>
-          <div class="testimonial-author">Marc &amp; Diane L.</div>
-          <div class="testimonial-location">Rockland, ON</div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What is the best time of year to install interlock?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              We work from spring through fall — typically May through October.
+              Spring and early summer are ideal since the ground is thawed and
+              stable. That said, fall installations are perfectly fine and can
+              sometimes be scheduled faster since demand slows down. We don't
+              recommend winter installations due to frost and ground conditions.
+            </div>
+          </div>
         </div>
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p class="testimonial-text">
-            "I've had three projects done over the years — a driveway, a
-            backyard patio, and a side walkway. Each one was done with the same
-            care and quality. These guys are the real deal."
-          </p>
-          <div class="testimonial-author">Robert G.</div>
-          <div class="testimonial-location">Orleans, ON</div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Do you offer a warranty on your work?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes. We stand behind our work. We offer a warranty on labour and
+              installation, and the interlock products we use come with
+              manufacturer warranties. If you ever notice settling, shifting, or
+              any issue related to installation, we'll come back and make it
+              right. Just give us a call.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How much does an interlock patio cost?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Every project is different, so we always recommend a free on-site
+              estimate for an accurate quote. As a general guide, most
+              residential patios in the Orleans and Rockland area range from
+              $8,000 to $25,000+ depending on size, design complexity, materials
+              chosen, and whether steps or walls are included. We'll walk you
+              through all your options with no obligation.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Do I need a permit for an interlock patio?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              In most cases, a standard interlock patio does not require a
+              permit in Orleans or Rockland. However, retaining walls over a
+              certain height, or work close to your property line, may require
+              one. We're familiar with local requirements and can advise you
+              during your consultation.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How do I maintain my interlock after installation?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Interlock is very low maintenance. We recommend re-sanding the
+              joints every few years as polymeric sand can break down over time.
+              Sealing your interlock every 2–3 years helps preserve the colour
+              and protects against staining. Avoid using salt in winter — use
+              sand or a calcium-based product instead. We're happy to share full
+              care instructions after your project is complete.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Do you serve areas outside Orleans and Rockland?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Our primary service area is Orleans and Rockland, where we've been
+              working for 25 years. We also take on select projects in
+              neighbouring communities like Cumberland, Navan, Vars, Embrun, and
+              Russell. If you're unsure whether we cover your area, just give us
+              a call — we're happy to discuss it.
+            </div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What's included in a free estimate?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              We come to your property, assess the space, discuss your ideas and
+              budget, and give you a detailed written quote — all at no cost and
+              no obligation. We'll help you choose the right materials, layout,
+              and features to make the most of your outdoor space. The estimate
+              visit typically takes 30–45 minutes.
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1789,6 +2301,23 @@
             "Building beautiful, lasting outdoor spaces for the Orleans and
             Rockland community — one stone at a time, for over 25 years."
           </p>
+          <div class="footer-contact-line">
+            Phone: <a href="tel:+16132822152">(613) 282-2152</a>
+          </div>
+          <div class="footer-contact-line">
+            Email:
+            <a href="mailto:kelly40whalen@gmail.com">kelly40whalen@gmail.com</a>
+          </div>
+          <div
+            class="footer-contact-line"
+            style="
+              margin-top: 4px;
+              color: rgba(255, 255, 255, 0.4);
+              font-size: 0.82rem;
+            "
+          >
+            Serving Orleans &amp; Rockland, Ottawa, ON
+          </div>
         </div>
         <div class="footer-col">
           <h4>Navigation</h4>
@@ -1797,6 +2326,7 @@
             <li><a href="#services">Services</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#service-area">Service Area</a></li>
+            <li><a href="#faq">FAQ</a></li>
             <li><a href="#contact">Get a Quote</a></li>
           </ul>
         </div>
@@ -1813,11 +2343,11 @@
         </div>
       </div>
       <div class="footer-bottom">
+        <span>© 2025 Ottawa Stone Works. All rights reserved.</span>
         <span
-          >© 2025 Ottawa Stone Works. All rights reserved. Serving Orleans &amp;
-          Rockland, ON.</span
+          >Family owned &amp; operated since 2000 · Orleans &amp; Rockland,
+          ON</span
         >
-        <span>Family owned &amp; operated since 2000</span>
       </div>
     </footer>
 
@@ -1841,6 +2371,18 @@
           .classList.toggle("scrolled", window.scrollY > 40);
       });
 
+      // Hamburger menu
+      function toggleMenu() {
+        const menu = document.getElementById("mobileMenu");
+        const btn = document.getElementById("hamburger");
+        menu.classList.toggle("open");
+        btn.classList.toggle("open");
+      }
+      function closeMenu() {
+        document.getElementById("mobileMenu").classList.remove("open");
+        document.getElementById("hamburger").classList.remove("open");
+      }
+
       // Scroll reveal
       const reveals = document.querySelectorAll(".reveal");
       const observer = new IntersectionObserver(
@@ -1856,7 +2398,22 @@
       );
       reveals.forEach((el) => observer.observe(el));
 
-      // Lightbox with navigation
+      // FAQ accordion
+      function toggleFaq(btn) {
+        const answer = btn.nextElementSibling;
+        const isOpen = btn.classList.contains("open");
+        // close all
+        document.querySelectorAll(".faq-question").forEach((q) => {
+          q.classList.remove("open");
+          q.nextElementSibling.classList.remove("open");
+        });
+        if (!isOpen) {
+          btn.classList.add("open");
+          answer.classList.add("open");
+        }
+      }
+
+      // Lightbox
       let allImages = [];
       let currentIndex = 0;
 
@@ -1865,7 +2422,6 @@
           document.querySelectorAll(".portfolio-item img"),
         );
       }
-
       function openLightbox(item) {
         buildImageList();
         const img = item.querySelector("img");
@@ -1874,19 +2430,16 @@
         document.getElementById("lightbox").classList.add("active");
         document.body.style.overflow = "hidden";
       }
-
       function changeImage(dir) {
         currentIndex =
           (currentIndex + dir + allImages.length) % allImages.length;
         document.getElementById("lightboxImg").src =
           allImages[currentIndex].src;
       }
-
       function closeLightbox() {
         document.getElementById("lightbox").classList.remove("active");
         document.body.style.overflow = "";
       }
-
       document
         .getElementById("lightbox")
         .addEventListener("click", function (e) {
@@ -1896,7 +2449,6 @@
           )
             closeLightbox();
         });
-
       document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") closeLightbox();
         if (e.key === "ArrowRight") changeImage(1);
@@ -1911,7 +2463,7 @@
           return;
         }
         alert(
-          "Thank you for your message! We'll be in touch within 1-2 business days to schedule your free estimate.",
+          "Thank you! We'll be in touch within 1–2 business days to schedule your free estimate.",
         );
       }
     </script>
